@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <pre>
+
+    </pre>
+    <script>
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('POST', '/db.json');
+
+        xhr.setRequestHeader('content-type', 'application/json');
+
+        xhr.send(JSON.stringify({ id: 4, content: 'react', completed: false }))
+
+        xhr.onload = () => {
+            if (xhr.status === 200 || xhr.status === 201) {
+                document.querySelector('pre') = xhr.responseText;
+            } else {
+                console.error('Error', xhr.status, xhr.statusText)
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
