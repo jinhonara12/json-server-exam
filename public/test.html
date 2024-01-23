@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre></pre>
+    <script>
+        let pre = document.querySelector('pre')
+
+        let xhr = new XMLHttpRequest()
+
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1')
+        xhr.send()
+        xhr.onload = result
+
+        function result() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {//서버로부터 응답이 종료되었는지 확인
+                if (xhr.status === 200) {// 서버 이상없음, 응답 받음
+                    pre.textContent = xhr.responseText
+                } else {//서버로부터 응답을 받는 중에 문제가 생김
+
+                }
+            } else {//서버에게 응답이 없음, 아직 준비되지 않음
+
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
